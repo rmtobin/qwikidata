@@ -84,9 +84,7 @@ class WikidataJsonDump:
         self.logger.debug("writing {}".format(out_fname))
         out_lines = [out_line.rstrip(",\n") for out_line in out_lines]
         with open(out_fname, "w") as fp:
-            fp.write("[\n")
-            fp.write(",\n".join(out_lines))
-            fp.write("\n]\n")
+            fp.write("\n".join(out_lines))
 
         if self.compression == "bz2":
             args = ["bzip2", out_fname]
